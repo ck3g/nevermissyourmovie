@@ -1,0 +1,22 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *common
+  database: nevermissyourmovie_development
+  username: postgres
+  password: '123'
+
+test:
+  <<: *common
+  database: nevermissyourmovie_test
+  username: postgres
+  password: '123'
+
+production:
+  <<: *common
+  database: nevermissyourmovie_development
+  username: postgres
+  password: '123'
