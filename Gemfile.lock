@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: 6b685618cb011389e7a4b0430f59a88fa1e14027
+  branch: bootstrap-3
+  specs:
+    simple_form (3.0.1)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -179,9 +188,6 @@ GEM
     shoulda-context (1.2.1)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     slop (3.6.0)
     spring (1.1.3)
     sprockets (2.11.0)
@@ -236,7 +242,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.3)
   shoulda
-  simple_form
+  simple_form!
   spring
   thin
   uglifier (>= 1.3.0)

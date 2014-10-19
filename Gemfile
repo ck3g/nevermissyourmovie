@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 
 gem 'meta-tags', require: "meta_tags"
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form', branch: 'bootstrap-3'
 
 
 
