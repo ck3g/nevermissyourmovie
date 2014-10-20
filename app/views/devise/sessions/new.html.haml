@@ -1,9 +1,10 @@
-%h2 Log in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, required: false, autofocus: true
-    = f.input :password, required: false
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Log in"
-= render "devise/shared/links"
+.panel-body
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-signin'}, defaults: { input_html: { class: 'form-control' }, label: false }) do |f|
+    %fieldset
+      %label.panel-login
+        .login_result
+      = f.input :email, required: false, autofocus: true, placeholder: 'Email'
+      = f.input :password, required: false, placeholder: 'Password'
+      %br/
+      = f.button :submit, "Login »", class: 'btn btn-lg btn-success btn-block'
+      = render "devise/shared/links"
