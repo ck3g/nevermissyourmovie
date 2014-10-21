@@ -31,6 +31,7 @@ group :development do
   gem "pry-rails"
   gem "bullet"
   gem "spring"
+  gem 'quiet_assets'
 end
 
 group :development, :test do
