@@ -107,6 +107,8 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     meta-tags (2.0.0)
@@ -239,6 +241,7 @@ DEPENDENCIES
   html2haml
   jquery-rails
   launchy
+  letter_opener
   meta-tags
   pg
   pry-rails

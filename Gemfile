@@ -32,6 +32,7 @@ group :development do
   gem "bullet"
   gem "spring"
   gem 'quiet_assets'
+  gem 'letter_opener'
 end
 
 group :development, :test do
