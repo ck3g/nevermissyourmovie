@@ -2,6 +2,13 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+a.navbar-brand {
+  img.logo {
+    height: 45px;
+    margin-top: -13px;
+  }
+}
+
 body.auth {
   background-color: #6f5499;
 
