@@ -1,4 +1,9 @@
 en:
+  helpers:
+    submit:
+      movie:
+        create: Add Movie
+        update: Update Movie
   simple_form:
     "yes": 'Yes'
     "no": 'No'

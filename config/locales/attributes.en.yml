@@ -1,0 +1,6 @@
+
+en:
+  activerecord:
+    attributes:
+      movie:
+        tv_show: TV Show
