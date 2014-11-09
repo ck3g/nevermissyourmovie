@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   end
   resource :watch_list, path: 'watch-list'
 
-  root 'welcome#index'
+  authenticated do
+    root 'watch_lists#show', as: :watch_list_root
+  end
+
+  unauthenticated do
+    root 'welcome#index'
+  end
 end
