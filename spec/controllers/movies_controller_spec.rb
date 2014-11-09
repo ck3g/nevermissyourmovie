@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
+  let(:movie) { mock_model Movie, id: 1 }
+
   before do
     sign_in_user
+
+    allow(Movie).to receive(:find).with('1').and_return movie
   end
 
   describe 'GET #index' do
@@ -57,5 +61,15 @@ RSpec.describe MoviesController, type: :controller do
       it { expect(movie).to have_received :save }
       it { is_expected.to render_template :new }
     end
+  end
+
+  describe 'DELETE #destroy' do
+    before do
+      allow(movie).to receive :destroy
+      delete :destroy, id: movie.id
+    end
+
+    it { expect(movie).to have_received :destroy }
+    it { is_expected.to redirect_to movies_path }
   end
 end

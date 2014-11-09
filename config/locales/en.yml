@@ -1,8 +1,16 @@
 
 en:
+  are_you_sure: Are you sure?
+
   entity:
     movie: Movie
   created_successfully: "%{entity} has been created successfully"
 
   navbar:
     movies: Movies
+
+  movie:
+    actions:
+      to_watch_list: Start watching
+      edit: Edit
+      delete: Delete

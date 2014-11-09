@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   authorize_resource
+  before_action :find_movie, only: [:destroy]
 
   def index
     @movies = Movie.all
@@ -19,7 +20,16 @@ class MoviesController < ApplicationController
     end
   end
 
+  def destroy
+    @movie.destroy
+    redirect_to movies_path
+  end
+
   private
+  def find_movie
+    @movie = Movie.find params[:id]
+  end
+
   def movie_params
     params.require(:movie).permit(:title, :tv_show)
   end
