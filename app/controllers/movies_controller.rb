@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   authorize_resource
-  before_action :find_movie, only: [:destroy]
+  before_action :find_movie, only: [:edit, :update, :destroy]
 
   def index
     @movies = Movie.all
@@ -17,6 +17,19 @@ class MoviesController < ApplicationController
         notice: t(:created_successfully, entity: t('entity.movie'))
     else
       render :new
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @movie.update_attributes movie_params
+      redirect_to movies_path,
+        notice: t(:updated_successfully, entity: t('entity.movie'))
+    else
+      render :edit
     end
   end
 

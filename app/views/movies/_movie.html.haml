@@ -21,6 +21,6 @@
             .row
               .col-sm-12.col-xs-12.col-md-12
                 .col-md-5.col-sm-12.col-xs-12= link_to t('movie.actions.to_watch_list'), "#"
-                .col-md-3.col-sm-12.col-xs-12= link_to t('movie.actions.edit'), '#'
+                .col-md-3.col-sm-12.col-xs-12= link_to t('movie.actions.edit'), edit_movie_path(movie)
                 .col-md-4.col-sm-12.col-xs-12
                   = link_to t('movie.actions.delete'), movie, method: :delete, data: { confirm: t(:are_you_sure) }

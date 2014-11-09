@@ -5,6 +5,7 @@ en:
   entity:
     movie: Movie
   created_successfully: "%{entity} has been created successfully"
+  updated_successfully: "%{entity} has been updated successfully"
 
   navbar:
     movies: Movies
