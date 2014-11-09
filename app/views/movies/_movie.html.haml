@@ -7,7 +7,7 @@
         .media-body
           %a{:href => "#", :target => "_parent"}
           %h4.media-heading
-            = link_to movie.title, '#'
+            = link_to movie.title, movie
             %small.pull-right= l(3.days.from_now, format: :short)
           %ul.list-inline
             %li Current season

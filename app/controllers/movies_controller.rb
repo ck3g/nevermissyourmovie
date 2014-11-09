@@ -1,9 +1,13 @@
 class MoviesController < ApplicationController
   authorize_resource
-  before_action :find_movie, only: [:edit, :update, :destroy]
+  before_action :find_movie, only: [:show, :edit, :update, :destroy]
 
   def index
     @movies = Movie.all
+  end
+
+  def show
+
   end
 
   def new

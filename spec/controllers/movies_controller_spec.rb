@@ -23,7 +23,17 @@ RSpec.describe MoviesController, type: :controller do
     it { is_expected.to respond_with :success }
   end
 
-  describe 'GET #movie' do
+  describe 'GET #show' do
+    before do
+      get :show, id: movie.id
+    end
+
+    it { expect(Movie).to have_received :find }
+    it { is_expected.to render_template :show }
+    it { is_expected.to respond_with :success }
+  end
+
+  describe 'GET #new' do
     before do
       allow(Movie).to receive :new
       get :new
