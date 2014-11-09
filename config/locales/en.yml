@@ -3,3 +3,6 @@ en:
   entity:
     movie: Movie
   created_successfully: "%{entity} has been created successfully"
+
+  navbar:
+    movies: Movies
