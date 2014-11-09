@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Delete movie' do
   scenario 'can delete movie from list' do
-    create :user_example_com
-    movie = create :movie, title: 'Wrong Movie Title'
+    user = create :user_example_com
+    movie = create :movie, title: 'Wrong Movie Title', user: user
 
     sign_in_as 'user@example.com'
     visit movies_path

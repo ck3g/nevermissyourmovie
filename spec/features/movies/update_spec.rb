@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Update movie' do
   scenario 'can update with valid arguments' do
-    movie = create :movie, title: 'TBBT'
-    create :user_example_com
+    user = create :user_example_com
+    movie = create :movie, title: 'TBBT', user: user
 
     sign_in_as 'user@example.com'
     visit movies_path

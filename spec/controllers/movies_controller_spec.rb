@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-  let(:movie) { mock_model Movie, id: 1 }
+  let(:user) { sign_in_user }
+  let(:movie) { mock_model Movie, id: 1, user_id: user.id }
   let(:attrs) do
     { 'title' => 'Title', 'tv_show' => '1' }
   end
 
   before do
-    sign_in_user
-
+    allow(controller).to receive(:current_user).and_return user
+    allow(user).to receive(:movies).and_return Movie
     allow(Movie).to receive(:find).with('1').and_return movie
   end
 
@@ -56,6 +57,7 @@ RSpec.describe MoviesController, type: :controller do
         post :create, movie: attrs
       end
 
+      it { expect(user).to have_received :movies }
       it { expect(movie).to have_received :save }
       it { is_expected.to redirect_to movies_path }
       it { is_expected.to set_the_flash[:notice] }
