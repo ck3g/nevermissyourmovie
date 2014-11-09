@@ -7,6 +7,8 @@ RSpec.describe Movie, type: :model do
 
   describe '.associations' do
     it { is_expected.to belong_to :user }
+    it { is_expected.to have_many(:user_movies).dependent :destroy }
+    it { is_expected.to have_many :watchers }
   end
 
   describe '.associations' do

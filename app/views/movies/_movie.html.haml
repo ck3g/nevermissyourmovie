@@ -20,7 +20,8 @@
           %p.actions
             .row
               .col-sm-12.col-xs-12.col-md-12
-                .col-md-5.col-sm-12.col-xs-12= link_to t('movie.actions.to_watch_list'), "#"
+                .col-md-5.col-sm-12.col-xs-12
+                  = link_to t('movie.actions.to_watch_list'), watch_movie_path(movie), method: :post
                 - if can? :manage, movie
                   .col-md-3.col-sm-12.col-xs-12= link_to t('movie.actions.edit'), edit_movie_path(movie)
                   .col-md-4.col-sm-12.col-xs-12

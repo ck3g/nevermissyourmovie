@@ -120,4 +120,19 @@ RSpec.describe MoviesController, type: :controller do
     it { expect(movie).to have_received :destroy }
     it { is_expected.to redirect_to movies_path }
   end
+
+  describe 'POST #watch' do
+    let(:to_watch_list) { double 'ToWatchList' }
+    before do
+      allow(ToWatchList).to receive(:new).with(movie, user).
+        and_return to_watch_list
+      allow(to_watch_list).to receive(:execute)
+      post :watch, id: movie.id
+    end
+
+    it { expect(Movie).to have_received :find }
+    it { expect(to_watch_list).to have_received :execute }
+    it { is_expected.to redirect_to movies_path }
+    it { is_expected.to set_the_flash[:notice] }
+  end
 end

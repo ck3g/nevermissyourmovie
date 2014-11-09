@@ -19,6 +19,7 @@ RSpec.describe Ability, type: :model do
     it { is_expected.to be_able_to :read, Movie }
     it { is_expected.not_to be_able_to :manage, movie }
     it { is_expected.to be_able_to :manage, my_movie }
+    it { is_expected.to be_able_to :show, :watch_list }
   end
 end
 
