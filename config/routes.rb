@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :movies do
     post :watch, on: :member
   end
-  resource :watch_list
+  resource :watch_list, path: 'watch-list'
 
   root 'welcome#index'
 end

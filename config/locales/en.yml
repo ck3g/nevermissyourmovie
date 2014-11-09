@@ -9,6 +9,7 @@ en:
   added_to_watch_list: "%{title} has been added to your watch list"
 
   navbar:
+    watch_list: Watch list
     movies: Movies
 
   movie:
