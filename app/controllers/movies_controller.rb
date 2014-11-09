@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  authorize_resource
+
   def index
     @movies = Movie.all
   end

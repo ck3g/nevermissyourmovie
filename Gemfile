@@ -10,7 +10,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-
 gem "devise"
 gem "haml-rails"
 gem 'jquery-rails'
@@ -21,7 +20,7 @@ gem 'autoprefixer-rails'
 gem 'meta-tags', require: "meta_tags"
 gem 'simple_form', github: 'plataformatec/simple_form', branch: 'bootstrap-3'
 
-
+gem 'cancancan'
 
 group :development do
   gem "erb2haml"

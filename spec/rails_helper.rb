@@ -15,6 +15,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Features::AuthHelpers, type: :feature
   config.include MailerMacros
+  config.include ControllerMacros, type: :controller
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

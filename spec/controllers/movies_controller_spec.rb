@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
+  before do
+    sign_in_user
+  end
+
   describe 'GET #index' do
     before do
       allow(Movie).to receive(:all)

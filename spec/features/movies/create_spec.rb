@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 feature 'Create new movie' do
-  scenario 'can create new movie' do
+  scenario 'can create with valid attributes' do
+    create :user_example_com
+
+    sign_in_as 'user@example.com'
     visit new_movie_path
 
     within "#new_movie" do
