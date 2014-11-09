@@ -1,0 +1,42 @@
+.list-inline {
+  margin: 0 0 10px 0;
+}
+
+.list-inline > li {
+  padding: 0 10px 0 0;
+}
+
+.tile {
+  border: 1px solid #ddd;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 20px;
+
+  .media-body {
+    font-size: .9em;
+  }
+
+  p.actions {
+    a {
+      margin-right: 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .property-listing {
+    padding: 5px!important;
+    a {
+      margin: 0;
+    }
+    .media-body {
+      padding: 10px;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .property-listing img {
+    max-width: 135px;
+  }
+}

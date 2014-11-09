@@ -1,0 +1,25 @@
+.col-sm-6
+  .tile
+    .media
+      %a.pull-left{:href => "#", :target => "_parent"}
+        -# %img.img-responsive{:alt => "image", width: '140px'}/
+        .clearfix.visible-sm
+        .media-body
+          %a{:href => "#", :target => "_parent"}
+          %h4.media-heading
+            = link_to movie.title, '#'
+            %small.pull-right= l(3.days.from_now, format: :short)
+          %ul.list-inline
+            %li Current season
+            %li Next episode
+          %p.hidden-xs
+            Situated between fairmount
+            park and the prestigious philadelphia cricket
+            club, this beautiful 2+ acre property is truly
+            \...
+          %p.actions
+            .row
+              .col-sm-12.col-xs-12.col-md-12
+                .col-md-5.col-sm-12.col-xs-12= link_to 'Start watching'
+                .col-md-3.col-sm-12.col-xs-12= link_to 'Edit', '#'
+                .col-md-4.col-sm-12.col-xs-12= link_to 'Remove', '#'
