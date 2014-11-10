@@ -4,8 +4,8 @@ class Ability
   def initialize(user)
     user ||= User.new
     if user.persisted?
-      can :read, Movie
-      can :manage, Movie, user_id: user.id
+      can [:read, :create, :watch, :stop_watching], Movie
+      can [:edit, :update, :destroy], Movie, user_id: user.id
       can :show, :watch_list
     else
       cannot :all, :all
