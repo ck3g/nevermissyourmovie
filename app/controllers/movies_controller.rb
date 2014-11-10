@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   authorize_resource
-  before_action :find_movie, only: [:show, :edit, :update, :destroy, :watch]
+  before_action :find_movie,
+    only: [:show, :edit, :update, :destroy, :watch, :stop_watching]
 
   def index
     @movies = Movie.all
@@ -46,6 +47,12 @@ class MoviesController < ApplicationController
     ToWatchList.new(@movie, current_user).execute
     redirect_to movies_path,
       notice: t(:added_to_watch_list, title: @movie.title)
+  end
+
+  def stop_watching
+    StopWatching.new(@movie, current_user).execute
+    redirect_to watch_list_path,
+      notice: t(:removed_from_watch_list, title: @movie.title)
   end
 
   private

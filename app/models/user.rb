@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :user_movies, dependent: :destroy
   has_many :watching_movies, through: :user_movies, class_name: "Movie",
     source: :movie
+
+  def watching?(movie)
+    user_movies.where(movie_id: movie.id).exists?
+  end
 end

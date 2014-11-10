@@ -7,6 +7,7 @@ en:
   created_successfully: "%{entity} has been created successfully"
   updated_successfully: "%{entity} has been updated successfully"
   added_to_watch_list: "%{title} has been added to your watch list"
+  removed_from_watch_list: "You have stopped watching %{title} movie"
 
   navbar:
     watch_list: Watch list
@@ -15,5 +16,6 @@ en:
   movie:
     actions:
       to_watch_list: Start watching
+      stop_watching: Stop watching
       edit: Edit
       delete: Delete

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :movies do
     post :watch, on: :member
+    delete :stop_watching, on: :member
   end
   resource :watch_list, path: 'watch-list'
 

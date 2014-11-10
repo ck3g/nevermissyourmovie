@@ -135,4 +135,20 @@ RSpec.describe MoviesController, type: :controller do
     it { is_expected.to redirect_to movies_path }
     it { is_expected.to set_the_flash[:notice] }
   end
+
+  describe 'DELETE #stop_watching' do
+    let(:stop_watching) { double 'StopWatching' }
+
+    before do
+      allow(StopWatching).to receive(:new).with(movie, user).
+        and_return stop_watching
+      allow(stop_watching).to receive :execute
+      delete :stop_watching, id: movie.id
+    end
+
+    it { expect(Movie).to have_received :find }
+    it { expect(stop_watching).to have_received :execute }
+    it { is_expected.to redirect_to watch_list_path }
+    it { is_expected.to set_the_flash[:notice] }
+  end
 end
