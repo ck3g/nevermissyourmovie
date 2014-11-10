@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
   has_many :movies, dependent: :nullify
   has_many :user_movies, dependent: :destroy
   has_many :watching_movies, through: :user_movies, class_name: "Movie",
-    source: :user
+    source: :movie
 end
