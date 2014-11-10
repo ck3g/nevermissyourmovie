@@ -45,7 +45,7 @@ class MoviesController < ApplicationController
 
   def watch
     ToWatchList.new(@movie, current_user).execute
-    redirect_to movies_path,
+    redirect_to watch_list_path,
       notice: t(:added_to_watch_list, title: @movie.title)
   end
 
