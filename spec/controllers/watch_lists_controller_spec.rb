@@ -9,11 +9,12 @@ RSpec.describe WatchListsController, type: :controller do
 
   describe 'GET #show' do
     before do
+      allow(WatchList).to receive(:for).with(user)
       allow(user).to receive :watching_movies
       get :show
     end
 
-    it { expect(user).to have_received :watching_movies }
+    it { expect(WatchList).to have_received :for }
     it { is_expected.to render_template :show }
     it { is_expected.to respond_with :success }
   end

@@ -2,6 +2,6 @@ class WatchListsController < ApplicationController
   authorize_resource class: false
 
   def show
-    @movies = current_user.watching_movies
+    @movies = WatchList.for(current_user)
   end
 end
