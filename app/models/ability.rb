@@ -3,7 +3,9 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    if user.persisted?
+    if user.admin?
+      can :manage, :all
+    elsif user.persisted?
       can [:read, :create, :watch, :stop_watching], Movie
       can [:edit, :update, :destroy], Movie do |movie|
         movie.user_id == user.id && movie.pending?

@@ -32,5 +32,17 @@ RSpec.describe Ability, type: :model do
     it { is_expected.not_to be_able_to :destroy, my_approved_movie }
     it { is_expected.to be_able_to :show, :watch_list }
   end
+
+  context 'when user is admin' do
+    let!(:user) { create :user, :admin }
+    let!(:movie) { create :movie }
+    let!(:my_movie) { create :movie, user: user }
+    let!(:my_approved_movie) { create :movie, :approved, user: user }
+
+    it { is_expected.to be_able_to :manage, :all }
+    it { is_expected.to be_able_to :manage, movie }
+    it { is_expected.to be_able_to :manage, my_movie }
+    it { is_expected.to be_able_to :manage, my_approved_movie }
+  end
 end
 
