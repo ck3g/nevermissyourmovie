@@ -21,6 +21,7 @@ gem 'meta-tags', require: "meta_tags"
 gem 'simple_form', github: 'plataformatec/simple_form', branch: 'bootstrap-3'
 
 gem 'cancancan'
+gem 'bitmask_attributes'
 gem 'aasm'
 
 group :development do
