@@ -11,5 +11,10 @@ class Movie < ActiveRecord::Base
   aasm column: :state do
     state :pending, initial: true
     state :approved
+
+    event :approve do
+      transitions from: :pending, to: :approved
+    end
+
   end
 end

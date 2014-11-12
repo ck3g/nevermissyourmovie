@@ -8,10 +8,12 @@ en:
   updated_successfully: "%{entity} has been updated successfully"
   added_to_watch_list: "%{title} has been added to your watch list"
   removed_from_watch_list: "You have stopped watching %{title} movie"
+  approved_successfully: "%{title} has been approved successfully"
 
   navbar:
     watch_list: Watch list
     movies: Movies
+    approval: Approval
 
   movie:
     actions:

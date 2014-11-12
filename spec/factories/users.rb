@@ -7,6 +7,11 @@ FactoryGirl.define do
       email 'user@example.com'
     end
 
+    factory :admin_example_com do
+      email 'admin@example.com'
+      admin
+    end
+
     trait :admin do
       roles [:admin]
     end

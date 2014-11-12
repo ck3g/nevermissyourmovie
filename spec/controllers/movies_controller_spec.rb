@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-  let(:user) { sign_in_user }
+  let(:user) { sign_in_admin }
   let(:movie) { mock_model Movie, id: 1, user_id: user.id }
   let(:attrs) do
     { 'title' => 'Title', 'tv_show' => '1' }
@@ -15,11 +15,11 @@ RSpec.describe MoviesController, type: :controller do
 
   describe 'GET #index' do
     before do
-      allow(Movie).to receive(:all)
+      allow(MoviesQuery).to receive(:all)
       get :index
     end
 
-    it { expect(Movie).to have_received :all }
+    it { expect(MoviesQuery).to have_received :all }
     it { is_expected.to render_template :index }
     it { is_expected.to respond_with :success }
   end
@@ -149,6 +149,28 @@ RSpec.describe MoviesController, type: :controller do
     it { expect(Movie).to have_received :find }
     it { expect(stop_watching).to have_received :execute }
     it { is_expected.to redirect_to watch_list_path }
+    it { is_expected.to set_the_flash[:notice] }
+  end
+
+  describe 'GET #approval' do
+    before do
+      allow(MoviesQuery).to receive(:pending)
+      get :approval
+    end
+
+    it { expect(MoviesQuery).to have_received :pending }
+    it { is_expected.to render_template :approval }
+    it { is_expected.to respond_with :success }
+  end
+
+  describe 'PATCH #approve' do
+    before do
+      allow(movie).to receive(:approve!)
+      patch :approve, id: movie.id
+    end
+
+    it { expect(movie).to have_received :approve! }
+    it { is_expected.to redirect_to approval_movies_path }
     it { is_expected.to set_the_flash[:notice] }
   end
 end

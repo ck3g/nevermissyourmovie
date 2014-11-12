@@ -12,6 +12,7 @@
         - if can? :show, :watch_list
           = link_to_nav :watch_list, watch_list_path
         = link_to_nav :movies, movies_path
+        = link_to_nav :approval, approval_movies_path
         %li
           %a{:href => "#about"} About
         %li

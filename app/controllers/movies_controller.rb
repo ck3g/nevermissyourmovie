@@ -1,10 +1,10 @@
 class MoviesController < ApplicationController
   authorize_resource
-  before_action :find_movie,
-    only: [:show, :edit, :update, :destroy, :watch, :stop_watching]
+  before_action :find_movie, only: [:show, :edit, :update, :destroy,
+                                    :watch, :stop_watching, :approve]
 
   def index
-    @movies = Movie.all
+    @movies = MoviesQuery.all
   end
 
   def show
@@ -53,6 +53,16 @@ class MoviesController < ApplicationController
     StopWatching.new(@movie, current_user).execute
     redirect_to watch_list_path,
       notice: t(:removed_from_watch_list, title: @movie.title)
+  end
+
+  def approval
+    @movies = MoviesQuery.pending
+  end
+
+  def approve
+    @movie.approve!
+    redirect_to approval_movies_path,
+      notice: t(:approved_successfully, title: @movie.title)
   end
 
   private

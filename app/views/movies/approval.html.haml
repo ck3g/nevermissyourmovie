@@ -1,0 +1,13 @@
+%h1 Approval
+
+%table.table#movies
+  %thead
+    %tr
+      %th.col-sm-8= Movie.human_attribute_name :title
+      %th
+  %tbody
+    - @movies.each do |movie|
+      %tr{id: dom_id(movie)}
+        %td= link_to movie.title, movie
+        %td
+          = link_to 'Approve', approve_movie_path(movie), method: :patch
