@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
   def create
     @movie = current_user.movies.new movie_params
     if @movie.save
-      redirect_to movies_path,
+      redirect_to movie_path(@movie),
         notice: t(:created_successfully, entity: t('entity.movie'))
     else
       render :new
@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
 
   def update
     if @movie.update_attributes movie_params
-      redirect_to movies_path,
+      redirect_to movie_path(@movie),
         notice: t(:updated_successfully, entity: t('entity.movie'))
     else
       render :edit

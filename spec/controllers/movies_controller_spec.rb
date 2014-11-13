@@ -62,7 +62,7 @@ RSpec.describe MoviesController, type: :controller do
 
       it { expect(user).to have_received :movies }
       it { expect(movie).to have_received :save }
-      it { is_expected.to redirect_to movies_path }
+      it { is_expected.to redirect_to movie_path(movie) }
       it { is_expected.to set_the_flash[:notice] }
     end
 
@@ -97,7 +97,7 @@ RSpec.describe MoviesController, type: :controller do
 
       it { expect(Movie).to have_received :find }
       it { expect(movie).to have_received :update_attributes }
-      it { is_expected.to redirect_to movies_path }
+      it { is_expected.to redirect_to movie_path(movie) }
       it { is_expected.to set_the_flash[:notice] }
     end
 
