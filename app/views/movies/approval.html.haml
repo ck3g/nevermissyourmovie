@@ -10,5 +10,9 @@
       %tr{id: dom_id(movie)}
         %td= link_to movie.title, movie
         %td
-          = link_to t('movies.actions.approve'), approve_movie_path(movie), method: :patch
-          = link_to t('movies.actions.reject'), reject_movie_path(movie), method: :patch
+          = link_to t('movies.actions.approve'), approve_movie_path(movie),
+            method: :patch, class: 'btn btn-success btn-xs btn-outline',
+            data: { confirm: t(:are_you_sure) }
+          = link_to t('movies.actions.reject'), reject_movie_path(movie),
+            method: :patch, class: 'btn btn-danger btn-xs btn-outline',
+            data: { confirm: t(:are_you_sure) }
