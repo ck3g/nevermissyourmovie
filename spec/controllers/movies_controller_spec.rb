@@ -49,30 +49,31 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe 'POST #create' do
-
+    let(:create_movie) { double 'CreateMovie' }
     before do
-      allow(Movie).to receive(:new).with(attrs).and_return movie
+      allow(Movie).to receive(:new).with(attrs.merge({ user: user })).
+        and_return movie
     end
 
     context 'when valid attributes' do
       before do
-        allow(movie).to receive(:save).and_return true
+        allow(movie).to receive(:valid?).and_return true
+        allow(CreateMovie).to receive(:new).
+          with(attrs.merge({ user: user })).and_return create_movie
+        allow(create_movie).to receive(:create).and_return movie
         post :create, movie: attrs
       end
 
-      it { expect(user).to have_received :movies }
-      it { expect(movie).to have_received :save }
       it { is_expected.to redirect_to movie_path(movie) }
       it { is_expected.to set_the_flash[:notice] }
     end
 
     context 'when invalid attributes' do
       before do
-        allow(movie).to receive(:save).and_return false
+        allow(movie).to receive(:valid?).and_return false
         post :create, movie: attrs
       end
 
-      it { expect(movie).to have_received :save }
       it { is_expected.to render_template :new }
     end
   end

@@ -14,6 +14,6 @@ feature 'Create new movie' do
     end
 
     expect(page).to have_content 'Movie has been created successfully'
-    expect(page).to have_selector 'a', text: 'Arrow'
+    expect(page).to have_selector 'h1', text: 'Arrow'
   end
 end

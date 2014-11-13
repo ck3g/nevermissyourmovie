@@ -17,8 +17,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = current_user.movies.new movie_params
-    if @movie.save
+    @movie = Movie.new create_movie_params
+    if @movie.valid?
+      @movie = CreateMovie.new(create_movie_params).create
       redirect_to movie_path(@movie),
         notice: t(:created_successfully, entity: t('entity.movie'))
     else
@@ -75,6 +76,10 @@ class MoviesController < ApplicationController
   private
   def find_movie
     @movie = Movie.find params[:id]
+  end
+
+  def create_movie_params
+    movie_params.merge({ user: current_user })
   end
 
   def movie_params
