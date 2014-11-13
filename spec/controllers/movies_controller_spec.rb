@@ -165,11 +165,22 @@ RSpec.describe MoviesController, type: :controller do
 
   describe 'PATCH #approve' do
     before do
-      allow(movie).to receive(:approve!)
+      allow(movie).to receive :approve!
       patch :approve, id: movie.id
     end
 
     it { expect(movie).to have_received :approve! }
+    it { is_expected.to redirect_to approval_movies_path }
+    it { is_expected.to set_the_flash[:notice] }
+  end
+
+  describe 'PATCH #reject' do
+    before do
+      allow(movie).to receive :reject!
+      patch :reject, id: movie.id
+    end
+
+    it { expect(movie).to have_received :reject! }
     it { is_expected.to redirect_to approval_movies_path }
     it { is_expected.to set_the_flash[:notice] }
   end

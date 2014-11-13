@@ -9,6 +9,7 @@ en:
   added_to_watch_list: "%{title} has been added to your watch list"
   removed_from_watch_list: "You have stopped watching %{title} movie"
   approved_successfully: "%{title} has been approved successfully"
+  rejected_successfully: "%{title} has been rejected successfully"
 
   navbar:
     watch_list: Watch list
@@ -21,3 +22,5 @@ en:
       stop_watching: Stop watching
       edit: Edit
       delete: Delete
+      approve: Approve
+      reject: Reject

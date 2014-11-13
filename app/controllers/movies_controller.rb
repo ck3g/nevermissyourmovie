@@ -1,7 +1,8 @@
 class MoviesController < ApplicationController
   authorize_resource
   before_action :find_movie, only: [:show, :edit, :update, :destroy,
-                                    :watch, :stop_watching, :approve]
+                                    :watch, :stop_watching, :approve,
+                                    :reject]
 
   def index
     @movies = MoviesQuery.all
@@ -63,6 +64,12 @@ class MoviesController < ApplicationController
     @movie.approve!
     redirect_to approval_movies_path,
       notice: t(:approved_successfully, title: @movie.title)
+  end
+
+  def reject
+    @movie.reject!
+    redirect_to approval_movies_path,
+      notice: t(:rejected_successfully, title: @movie.title)
   end
 
   private

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     delete :stop_watching, on: :member
     get :approval, on: :collection
     patch :approve, on: :member
+    patch :reject, on: :member
   end
   resource :watch_list, path: 'watch-list'
 
