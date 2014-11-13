@@ -4,3 +4,4 @@ en:
     attributes:
       movie:
         tv_show: TV Show
+        imdb_id: IMDb ID

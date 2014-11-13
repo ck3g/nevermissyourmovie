@@ -4,7 +4,10 @@ RSpec.describe MoviesController, type: :controller do
   let(:user) { sign_in_admin }
   let(:movie) { mock_model Movie, id: 1, user_id: user.id }
   let(:attrs) do
-    { 'title' => 'Title', 'tv_show' => '1' }
+    {
+      'title' => 'Title',
+      'imdb_id' => 'tt503'
+    }
   end
 
   before do

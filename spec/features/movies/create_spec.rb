@@ -9,7 +9,7 @@ feature 'Create new movie' do
 
     within "#new_movie" do
       fill_in "movie_title", with: 'Arrow'
-      check "TV Show"
+      fill_in "IMDb ID", with: 'tt2193021'
       click_button 'Add Movie'
     end
 

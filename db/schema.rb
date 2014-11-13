@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112195203) do
+ActiveRecord::Schema.define(version: 20141113194007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20141112195203) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "state",      default: "pending", null: false
+    t.string   "imdb_id"
   end
 
+  add_index "movies", ["imdb_id"], name: "index_movies_on_imdb_id", using: :btree
   add_index "movies", ["state"], name: "index_movies_on_state", using: :btree
   add_index "movies", ["user_id"], name: "index_movies_on_user_id", using: :btree
 

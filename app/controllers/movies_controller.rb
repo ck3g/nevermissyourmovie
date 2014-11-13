@@ -78,6 +78,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :tv_show)
+    params.require(:movie).permit(:title, :imdb_id)
   end
 end
