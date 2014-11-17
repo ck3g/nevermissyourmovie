@@ -1,4 +1,6 @@
-%h1 Movies
+%h1
+  Movies
+  = link_to fa_icon('plus'), new_movie_path, class: 'btn btn-success btn-outline'
 
 .row
   - @movies.each do |movie|

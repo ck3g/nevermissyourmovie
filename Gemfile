@@ -16,6 +16,7 @@ gem 'jquery-rails'
 # gem "has_scope"
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'font-awesome-rails'
 
 gem 'meta-tags', require: "meta_tags"
 gem 'simple_form', github: 'plataformatec/simple_form', branch: 'bootstrap-3'

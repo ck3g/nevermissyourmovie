@@ -90,6 +90,8 @@ GEM
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     ffaker (1.25.0)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     haml (4.1.0.beta.1)
       tilt
     haml-rails (0.5.3)
@@ -248,6 +250,7 @@ DEPENDENCIES
   erb2haml
   factory_girl_rails
   ffaker
+  font-awesome-rails
   haml-rails
   html2haml
   jquery-rails
