@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113194007) do
+ActiveRecord::Schema.define(version: 20141123170914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20141113194007) do
     t.integer  "user_id"
     t.string   "state",      default: "pending", null: false
     t.string   "imdb_id"
+    t.text     "plot"
+    t.string   "movie_type"
+    t.string   "poster"
   end
 
   add_index "movies", ["imdb_id"], name: "index_movies_on_imdb_id", using: :btree
