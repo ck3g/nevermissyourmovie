@@ -1,9 +1,11 @@
 class CreateMovie
+  attr_reader :movie
+
   def initialize(options = {})
-    @options = options
+    @movie = Movie.new options
   end
 
-  def create
-    Movie.create @options
+  def save
+    @movie.save
   end
 end

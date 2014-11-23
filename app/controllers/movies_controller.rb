@@ -17,12 +17,12 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new create_movie_params
-    if @movie.valid?
-      @movie = CreateMovie.new(create_movie_params).create
-      redirect_to movie_path(@movie),
+    service = CreateMovie.new create_movie_params
+    if service.save
+      redirect_to movie_path(service.movie),
         notice: t(:created_successfully, entity: t('entity.movie'))
     else
+      @movie = service.movie
       render :new
     end
   end

@@ -49,18 +49,16 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:create_movie) { double 'CreateMovie' }
+    let(:movie) { mock_model Movie }
+    let(:create_movie) { double 'CreateMovie', movie: movie }
     before do
-      allow(Movie).to receive(:new).with(attrs.merge({ user: user })).
-        and_return movie
+      allow(CreateMovie).to receive(:new).with(attrs.merge({ user: user })).
+        and_return create_movie
     end
 
     context 'when valid attributes' do
       before do
-        allow(movie).to receive(:valid?).and_return true
-        allow(CreateMovie).to receive(:new).
-          with(attrs.merge({ user: user })).and_return create_movie
-        allow(create_movie).to receive(:create).and_return movie
+        allow(create_movie).to receive(:save).and_return true
         post :create, movie: attrs
       end
 
@@ -70,7 +68,7 @@ RSpec.describe MoviesController, type: :controller do
 
     context 'when invalid attributes' do
       before do
-        allow(movie).to receive(:valid?).and_return false
+        allow(create_movie).to receive(:save).and_return false
         post :create, movie: attrs
       end
 
