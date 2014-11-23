@@ -25,6 +25,8 @@ gem 'cancancan'
 gem 'bitmask_attributes'
 gem 'aasm'
 
+gem 'sidekiq', '~> 3.3.0'
+
 group :development do
   gem "erb2haml"
   gem "html2haml"

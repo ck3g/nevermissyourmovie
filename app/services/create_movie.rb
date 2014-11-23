@@ -6,6 +6,11 @@ class CreateMovie
   end
 
   def save
-    @movie.save
+    save_result = @movie.save
+    if save_result
+      MovieInfoWorker.perform_async @movie.id
+    end
+
+    save_result
   end
 end
